@@ -7,6 +7,35 @@ pub fn sigmoid(mut list_in: Vec<f32>) -> Vec<f32> {
     list_in
 }
 
+pub fn derivative_sigmoid(mut list_in: Vec<f32>) -> Vec<f32> {
+    for value_index in 0..list_in.len() {
+        list_in[value_index] = list_in[value_index] * (1.0 - list_in[value_index])
+    }
+    list_in
+}
+
+pub fn derivative_tahn(mut list_in: Vec<f32>) -> Vec<f32> {
+    for value_index in 0..list_in.len() {
+        list_in[value_index] = 1.0 - list_in[value_index] * list_in[value_index]
+    }
+    list_in
+}
+
 pub fn exp(value: f32) -> f32 {
     EULER.powf(value)
+}
+
+pub fn dot(list1: Vec<f32>, list2: Vec<f32>) -> f32 {
+    let mut result = 0.0;
+
+    if list1.len() != list2.len() {
+        println!("The list sizes aren't equal");
+        return 0.0;
+    }
+
+    for i in 0..list1.len() {
+        result += list1[i] * list2[i];
+    }
+
+    result
 }
