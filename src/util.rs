@@ -48,3 +48,32 @@ pub fn dot(list1: Vec<f32>, list2: Vec<f32>) -> f32 {
 
     result
 }
+
+pub fn average(list_in: Vec<f32>) -> f32 {
+    let list_len = list_in.len() as f32;
+    let mut result = 0.0;
+    for value in list_in {
+        result += value / list_len;
+    }
+    result
+}
+
+/*
+Why didn't I use the average function?
+Here it would be slower to create a new list of the combined lists, or updating would also be slower
+*/
+pub fn mse(list1: Vec<f32>, list2: Vec<f32>) -> f32 {
+    if list1.len() != list2.len() {
+        println!("The list sizes aren't equal");
+        return 0.0;
+    }
+
+    let list_len = list1.len() as f32;
+
+    let mut result = 0.0;
+
+    for value_index in 0..list_len as usize {
+        result += (list1[value_index] - list2[value_index]).powf(2.0) / list_len;
+    }
+    result
+}
