@@ -38,7 +38,7 @@ pub fn dot(list1: Vec<f32>, list2: Vec<f32>) -> f32 {
     let mut result = 0.0;
 
     if list1.len() != list2.len() {
-        println!("The list sizes aren't equal");
+        println!("[DOT PRODUCT] The list sizes aren't equal");
         return 0.0;
     }
 
@@ -64,7 +64,7 @@ Here it would be slower to create a new list of the combined lists, or updating 
 */
 pub fn mse(list1: Vec<f32>, list2: Vec<f32>) -> f32 {
     if list1.len() != list2.len() {
-        println!("The list sizes aren't equal");
+        println!("[MSE] The list sizes aren't equal");
         return 0.0;
     }
 
