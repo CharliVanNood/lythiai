@@ -7,6 +7,15 @@ pub fn sigmoid(mut list_in: Vec<f32>) -> Vec<f32> {
     list_in
 }
 
+pub fn tanh(mut list_in: Vec<f32>) -> Vec<f32> {
+    for value_index in 0..list_in.len() {
+        let exp_positive = exp(list_in[value_index]);
+        let exp_negative = exp(-list_in[value_index]);
+        list_in[value_index] = (exp_positive - exp_negative) / (exp_positive + exp_negative)
+    }
+    list_in
+}
+
 pub fn derivative_sigmoid(mut list_in: Vec<f32>) -> Vec<f32> {
     for value_index in 0..list_in.len() {
         list_in[value_index] = list_in[value_index] * (1.0 - list_in[value_index])
@@ -14,7 +23,7 @@ pub fn derivative_sigmoid(mut list_in: Vec<f32>) -> Vec<f32> {
     list_in
 }
 
-pub fn derivative_tahn(mut list_in: Vec<f32>) -> Vec<f32> {
+pub fn derivative_tanh(mut list_in: Vec<f32>) -> Vec<f32> {
     for value_index in 0..list_in.len() {
         list_in[value_index] = 1.0 - list_in[value_index] * list_in[value_index]
     }
