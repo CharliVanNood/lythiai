@@ -53,9 +53,9 @@ pub fn average(list_in: Vec<f32>) -> f32 {
     let list_len = list_in.len() as f32;
     let mut result = 0.0;
     for value in list_in {
-        result += value / list_len;
+        result += value;
     }
-    result
+    result / list_len
 }
 
 /*
@@ -73,7 +73,7 @@ pub fn mse(list1: Vec<f32>, list2: Vec<f32>) -> f32 {
     let mut result = 0.0;
 
     for value_index in 0..list_len as usize {
-        result += (list1[value_index] - list2[value_index]).powf(2.0) / list_len;
+        result += (list1[value_index] - list2[value_index]).powf(2.0);
     }
-    result
+    result / list_len
 }
