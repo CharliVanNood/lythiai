@@ -29,6 +29,6 @@ impl Network {
             
         }
 
-        0.0
+        util::average(results)
     }
 }
