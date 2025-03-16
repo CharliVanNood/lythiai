@@ -8,7 +8,7 @@ impl RELU {
         }
     }
 
-    pub fn layer(&self) -> usize {
-        0
+    pub fn info(&self) {
+        println!("info")
     }
 }

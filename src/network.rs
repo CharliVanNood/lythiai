@@ -10,6 +10,7 @@ pub struct Network {
 }
 impl Network {
     pub fn init() -> Self {
+        println!("Initializing new Network");
         Self {
             loss_function: 0,
             layers: Vec::new()
@@ -18,6 +19,16 @@ impl Network {
 
     pub fn add(&mut self, layer: Layer) {
         self.layers.push(layer);
+    }
+
+    pub fn info(&self) {
+        println!("------- Lythiai -------");
+        for layer in &self.layers {
+            match layer {
+                Layer::RELU(_) => println!("| RELU")
+            }
+        }
+        println!("-----------------------");
     }
 
     fn calc_loss(&self, prediction: Vec<f32>, reference: Vec<f32>) -> f32 {
