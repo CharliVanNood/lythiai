@@ -31,6 +31,10 @@ impl Network {
         println!("-----------------------");
     }
 
+    pub fn train(&self, data_x: Vec<Vec<f32>>, data_y: Vec<f32>) {
+
+    }
+
     fn calc_loss(&self, prediction: Vec<f32>, reference: Vec<f32>) -> f32 {
         match self.loss_function {
             0 => return util::mse(prediction, reference),
